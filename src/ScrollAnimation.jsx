@@ -411,9 +411,10 @@ export default function ScrollAnimation({ children }) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#060d22',
+            backgroundColor: '#03040a',
             transform: isReady ? 'translateY(-100%)' : 'translateY(0)',
             pointerEvents: isReady ? 'none' : 'auto',
+            willChange: 'transform',
             transition: 'transform 0.8s cubic-bezier(0.65, 0, 0.35, 1)',
           }}
         >

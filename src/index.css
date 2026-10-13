@@ -1990,7 +1990,7 @@ textarea ~ .floating-input-label {
   .cert-doodle,
   .edu-card-new,
   .edu-dot-new,
-  .boot-ring__logo {
+  .boot-ring__core {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -2696,27 +2696,60 @@ textarea ~ .floating-input-label {
 
 
 
-/* ═══ BOOT LOADER (progress ring around logo, black page background) ═══ */
+/* ═══ BOOT LOADER (progress ring around logo + progress readout) ═══ */
 .boot-loader {
   position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  background: #08080c;
-  text-align: center;
+  overflow: hidden;
   padding: 1.5rem;
+  text-align: center;
+  background:
+    radial-gradient(120% 100% at 50% 0%, #0b1428 0%, #060a16 55%, #03040a 100%);
+}
+
+/* Soft blue glows that sit behind everything */
+.boot-loader__aura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(closest-side at 50% 40%, rgba(56, 189, 248, 0.16), transparent 72%),
+    radial-gradient(closest-side at 16% 84%, rgba(65, 105, 225, 0.2), transparent 72%),
+    radial-gradient(closest-side at 86% 14%, rgba(37, 99, 235, 0.14), transparent 72%);
+}
+
+/* Faint blueprint grid, faded out toward the edges */
+.boot-loader__grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, #000 0%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 45%, #000 0%, transparent 72%);
+}
+
+.boot-loader__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  width: min(360px, 84vw);
 }
 
 .boot-ring {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: clamp(140px, 45vw, 176px);
-  height: clamp(140px, 45vw, 176px);
+  display: grid;
+  place-items: center;
+  width: clamp(132px, 42vw, 184px);
+  aspect-ratio: 1 / 1;
 }
 
 .boot-ring__svg {
@@ -2732,16 +2765,26 @@ textarea ~ .floating-input-label {
 }
 
 .boot-ring__fill {
-  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.8));
-  transition: stroke-dashoffset 0.25s linear;
+  filter: drop-shadow(0 0 9px rgba(56, 189, 248, 0.75));
+  transition: stroke-dashoffset 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.boot-ring__logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 10px 24px rgba(56, 189, 248, 0.45));
-  animation: bootLogoPulse 2s ease-in-out infinite;
+.boot-ring__core {
+  position: relative;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 12px 28px rgba(56, 189, 248, 0.4));
+  animation: bootLogoPulse 2.4s ease-in-out infinite;
+}
+
+.boot-ring__core::before {
+  content: '';
+  position: absolute;
+  width: 72%;
+  height: 72%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.28), transparent 70%);
+  filter: blur(10px);
 }
 
 @keyframes bootLogoPulse {
@@ -2751,49 +2794,104 @@ textarea ~ .floating-input-label {
     opacity: 1;
   }
   50% {
-    transform: scale(1.06);
-    opacity: 0.9;
+    transform: scale(1.05);
+    opacity: 0.92;
   }
+}
+
+.boot-loader__identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
 }
 
 .boot-loader__name {
   font-family: var(--font-display), sans-serif;
-  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-size: clamp(0.95rem, 2.8vw, 1.25rem);
   font-weight: 800;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: #fff;
-  text-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
+  background: linear-gradient(180deg, #ffffff 0%, #c7ddfb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.45));
 }
 
 .boot-loader__sub {
-  font-size: 0.62rem;
+  font-size: 0.64rem;
   font-weight: 600;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.boot-loader__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  width: 100%;
+}
+
+.boot-loader__bar {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.boot-loader__bar-fill {
+  position: relative;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #4169e1, #38bdf8);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.boot-loader__bar-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: translateX(-100%);
+  animation: bootShimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes bootShimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.boot-loader__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: var(--mono), monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.45);
 }
 
-.boot-loader__pct {
-  min-width: 3.5ch;
-  font-family: var(--mono), monospace;
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #38bdf8;
-  padding: 4px 12px;
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  border-radius: 999px;
-  background: rgba(56, 189, 248, 0.08);
+.boot-loader__status {
+  text-align: left;
 }
 
-.boot-loader__pct-num {
-  color: #fff;
+.boot-loader__pct {
+  color: #38bdf8;
+  font-variant-numeric: tabular-nums;
 }
 
 @media (max-width: 480px) {
-  .boot-loader {
-    gap: 1rem;
+  .boot-loader__content {
+    gap: 1.35rem;
   }
 
   .boot-loader__name {
@@ -2805,25 +2903,45 @@ textarea ~ .floating-input-label {
     font-size: 0.5rem;
     letter-spacing: 0.12em;
     line-height: 1.7;
-    max-width: 22ch;
+  }
+
+  .boot-loader__meta {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
   }
 }
 
-/* 320px-wide phones: shrink the ring further and keep the long subtitle
-   wrapping cleanly instead of overflowing the viewport. */
+/* 320px-wide phones: shrink the ring and shorten the long subtitle so it
+   wraps cleanly instead of overflowing the viewport. */
 @media (max-width: 359px) {
   .boot-ring {
-    width: 132px;
-    height: 132px;
+    width: 124px;
   }
 
   .boot-loader__name {
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     letter-spacing: 0.1em;
   }
 
   .boot-loader__sub {
     font-size: 0.46rem;
     letter-spacing: 0.08em;
+  }
+}
+
+/* Respect the user's motion preference: keep the layout, drop the motion. */
+@media (prefers-reduced-motion: reduce) {
+  .boot-ring__core {
+    animation: none;
+  }
+
+  .boot-loader__bar-fill,
+  .boot-ring__fill {
+    transition: none;
+  }
+
+  .boot-loader__bar-fill::after {
+    animation: none;
+    opacity: 0;
   }
 }
