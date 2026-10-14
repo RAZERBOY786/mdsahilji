@@ -6,7 +6,10 @@ import { useEffect, useRef, useState } from 'react';
  */
 export function useCountUp(target, { duration = 1400, decimals = 0 } = {}) {
   const ref = useRef(null);
-  const [value, setValue] = useState(0);
+  // Initialise to the final value so prerendered/static HTML (and the first
+  // hydration render) shows the real number; the count-up replays from 0 the
+  // first time the element scrolls into view. Keeps markup crawlable.
+  const [value, setValue] = useState(target);
   const startedRef = useRef(false);
 
   useEffect(() => {
@@ -18,6 +21,7 @@ export function useCountUp(target, { duration = 1400, decimals = 0 } = {}) {
         if (entry.isIntersecting && !startedRef.current) {
           startedRef.current = true;
           io.disconnect();
+          setValue(0);
           const start = performance.now();
           const tick = (now) => {
             const t = Math.min(1, (now - start) / duration);

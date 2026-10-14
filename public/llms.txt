@@ -1,0 +1,52 @@
+# MD Sahil Johan Islam
+
+> Full-stack and React Native developer based in Delhi NCR, India. 5+ years of
+> experience building cross-platform mobile apps, full-stack web apps, REST APIs
+> and AI/ML features. Available for freelance, contract and remote work.
+
+## Summary
+
+- Name: MD Sahil Johan Islam
+- Role: Full-Stack & React Native Developer
+- Location: Delhi NCR, India
+- Experience: 5+ years, 15+ certifications
+- Email: islamsahil752@gmail.com
+- GitHub: https://github.com/RAZERBOY786
+- LinkedIn: https://www.linkedin.com/in/sahil-islam-a2b9941b3
+- Skills: React Native, Expo, React, TypeScript, JavaScript, Node.js, Express,
+  MongoDB, Firebase, PostgreSQL, Python, TensorFlow, Scikit-learn, AWS, Docker
+- Availability: open to freelance, contract and full-time remote roles
+
+## Main pages
+
+- [Portfolio home](https://mdsahilji.vercel.app/): overview, skills and selected work
+- [About](https://mdsahilji.vercel.app/#about): who Sahil is and what he does
+- [Tech stack](https://mdsahilji.vercel.app/#tech-stack): languages, frameworks and tools
+- [Projects](https://mdsahilji.vercel.app/#projects): 20+ mobile and web projects
+- [Certifications](https://mdsahilji.vercel.app/#certifications): professional credentials
+- [Education](https://mdsahilji.vercel.app/#education): academic background
+- [Milestones](https://mdsahilji.vercel.app/#milestones): competition results and awards
+- [FAQ](https://mdsahilji.vercel.app/#faq): services, stack, availability and contact
+- [Contact](https://mdsahilji.vercel.app/#contact): email and social links
+
+## Selected projects
+
+- [MedBlink](https://github.com/RAZERBOY786/MEDBLINK): three-app healthcare and
+  medicine-delivery ecosystem (customer, warehouse, rider) with one shared
+  Node.js/Express/MongoDB backend.
+- [Smart Data Analyzer](https://github.com/RAZERBOY786/Smart-Data-Analyzer):
+  React Native + Flask app that runs end-to-end data analysis and ML workflows
+  on a phone.
+- [Gitview](https://github.com/RAZERBOY786/Gitview): mobile GitHub analytics
+  dashboard for activity, repository insights and contribution trends.
+- [SkyPure](https://github.com/RAZERBOY786/SKYPURE): air-quality-index
+  prediction app combining React Native with a Python deep-learning model.
+- [Plant Disease Detection](https://github.com/RAZERBOY786/leafwish): CNN image
+  classifier (TensorFlow transfer learning + OpenCV) detecting 20+ plant
+  diseases at ~92% accuracy.
+
+## Contact
+
+- Email: islamsahil752@gmail.com
+- GitHub: https://github.com/RAZERBOY786
+- LinkedIn: https://www.linkedin.com/in/sahil-islam-a2b9941b3

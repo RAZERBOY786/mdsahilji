@@ -155,7 +155,7 @@ export default function Contact() {
       >
         <div ref={headingParallax.ref} style={{ ...headingParallax.style }}>
           <h2 className="cp-title--poster">
-            Contact
+            Contact{' '}
             <span className="cp-neon">Me</span>
           </h2>
         </div>

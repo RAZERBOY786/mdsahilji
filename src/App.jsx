@@ -15,6 +15,8 @@ import Milestones from './components/Milestones';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import Faq from './components/Faq';
+import { ROLE, LOCATION } from './data/site';
 
 const HERO_TECHS = [
   { label: 'React', slug: 'react', color: '61DAFB' },
@@ -189,6 +191,7 @@ function Hero() {
           }}
         >
           MD Sahil Johan Islam
+          <span className="sr-only"> — {ROLE}</span>
         </h1>
       </div>
 
@@ -206,10 +209,9 @@ function Hero() {
             textShadow: '0 2px 12px rgba(0, 0, 0, 0.9)',
           }}
         >
-          Passionate developer crafting modern, user-friendly digital experiences with clean design
-          and efficient code. Skilled in web and mobile technologies, I build innovative solutions
-          that solve real-world problems while focusing on performance, creativity, and seamless
-          user interaction across platforms.
+          {ROLE} based in {LOCATION.label}, with 5+ years of experience shipping
+          cross-platform mobile and web applications. I build modern, user-friendly products with
+          clean design and efficient code — from Node.js REST APIs to AI-powered mobile features.
         </p>
       </div>
 
@@ -499,7 +501,7 @@ function About() {
       >
         <div ref={headingParallax.ref} style={{ ...headingParallax.style }}>
           <h2 className="cp-title--poster">
-            About
+            About{' '}
             <span className="cp-neon">Me</span>
           </h2>
         </div>
@@ -507,6 +509,20 @@ function About() {
         <div ref={stagger.ref} className={stagger.visible ? 'is-visible' : ''}>
           <div className="stagger-child about-paper" style={{ padding: '2rem 2rem 2rem 1.5rem' }}>
             <span className="about-paper__rings" aria-hidden="true" />
+            <p
+              style={{
+                color: '#1f2937',
+                lineHeight: 1.75,
+                fontSize: '1.05rem',
+                fontWeight: 600,
+                margin: '0 0 1rem',
+              }}
+            >
+              I&rsquo;m MD Sahil Johan Islam, a full-stack and React Native developer based in{' '}
+              {LOCATION.label}, with 5+ years of experience and 15+ certifications. I build
+              cross-platform mobile apps, full-stack web apps and AI-powered features, and I&rsquo;m
+              available for freelance and remote work.
+            </p>
             <p
               style={{
                 color: '#1f2937',
@@ -614,7 +630,7 @@ function TechStack() {
       >
         <div ref={headingParallax.ref} style={{ ...headingParallax.style }}>
           <h2 className="cp-title--poster">
-            Tech
+            Tech{' '}
             <span className="cp-neon">Stack</span>
           </h2>
         </div>
@@ -758,6 +774,7 @@ export default function App() {
       <Certifications />
       <Education />
       <Milestones />
+      <Faq />
       <Contact />
       <Footer />
     </ScrollAnimation>
