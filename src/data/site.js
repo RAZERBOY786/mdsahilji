@@ -13,12 +13,12 @@ export const EMAIL = 'islamsahil752@gmail.com';
 
 /** Where the site owner is based. City shown in copy and structured data. */
 export const LOCATION = {
-  city: 'Delhi',
-  region: 'Delhi',
+  city: 'Meerut',
+  region: 'Uttar Pradesh',
   countryName: 'India',
   country: 'IN',
   /** Used in prose, where a friendlier form reads better. */
-  label: 'Delhi NCR, India',
+  label: 'Meerut, Uttar Pradesh, India',
 };
 
 export const SOCIALS = [
@@ -62,7 +62,7 @@ const personLd = () => ({
   alternateName: 'Sahil Johan Islam',
   jobTitle: ROLE,
   description:
-    'Full-stack and React Native developer based in Delhi NCR, India, building cross-platform mobile apps, full-stack web apps and AI/ML features.',
+    'Full-stack and React Native developer based in Meerut, Uttar Pradesh, India, building cross-platform mobile apps, full-stack web apps and AI/ML features.',
   url: `${SITE_URL}/`,
   image: OG_IMAGE,
   email: `mailto:${EMAIL}`,

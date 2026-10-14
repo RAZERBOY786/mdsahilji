@@ -1,14 +1,15 @@
 # MD Sahil Johan Islam
 
-> Full-stack and React Native developer based in Delhi NCR, India. 5+ years of
-> experience building cross-platform mobile apps, full-stack web apps, REST APIs
-> and AI/ML features. Available for freelance, contract and remote work.
+> Full-stack and React Native developer based in Meerut, Uttar Pradesh, India.
+> 5+ years of experience building cross-platform mobile apps, full-stack web
+> apps, REST APIs and AI/ML features. Available for freelance, contract and
+> remote work.
 
 ## Summary
 
 - Name: MD Sahil Johan Islam
 - Role: Full-Stack & React Native Developer
-- Location: Delhi NCR, India
+- Location: Meerut, Uttar Pradesh, India
 - Experience: 5+ years, 15+ certifications
 - Email: islamsahil752@gmail.com
 - GitHub: https://github.com/RAZERBOY786
